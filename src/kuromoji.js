@@ -17,8 +17,10 @@
 
 "use strict";
 
+var Tokenizer = require("./Tokenizer");
 var TokenizerBuilder = require("./TokenizerBuilder");
 var DictionaryBuilder = require("./dict/builder/DictionaryBuilder");
+var DictionaryLoader = require("./loader/DictionaryLoader");
 
 // Public methods
 var kuromoji = {
@@ -27,7 +29,9 @@ var kuromoji = {
     },
     dictionaryBuilder: function () {
         return new DictionaryBuilder();
-    }
+    },
+    Tokenizer,
+    DictionaryLoader,
 };
 
 module.exports = kuromoji;

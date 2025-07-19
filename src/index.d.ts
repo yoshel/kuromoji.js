@@ -48,6 +48,16 @@ declare module "@sglkc/kuromoji" {
   // dict/UnknownDictionary.js
   export type UnknownDictionary = TokenInfoDictionary;
 
+  // loader/DictionaryLoader.js
+  export class DictionaryLoader {
+    constructor(dic_path: string): void;
+    loadArrayBuffer(
+      url: string,
+      callback: (err: Error, array_buffer: Uint8Array) => void
+    ): void;
+    load(callback: (err: Error, dic: DynamicDictionaries) => void): void;
+  }
+
   // util/ByteBuffer.js
   export interface ByteBuffer {
     buffer: Uint8Array;
@@ -180,4 +190,6 @@ declare module "@sglkc/kuromoji" {
     option: TokenizerBuilderOption
   ): TokenizerBuilder<IpadicFeatures>;
   export function dictionaryBuilder(): DictionaryBuilder;
+  export const Tokenizer: Tokenizer;
+  export const DictionaryLoader: DictionaryLoader;
 }
